@@ -1,3 +1,6 @@
+#ifndef SHELL_H
+#define SHELL_H
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,5 +59,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void ctrl_c_handler(int);	
 void remove_comment(char *);	
 
+/*utils*/
+int parse_command(char *);
+void execute_command(char **, int);
+char *check_path(char *);
+void (*get-func(char *))(char **);
+char *_getenv(char *);
 
-ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+/*built_in*/
+void env(char **);
+void quit(char **);
+
+/*main*/
+extern void non_interactive(void);
+extern void initializer(char **current_command, int type_command);
+
+#endif /*SHEll_H*/
