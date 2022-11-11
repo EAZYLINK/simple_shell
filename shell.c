@@ -1,0 +1,41 @@
+#include "shell.h"
+char **commands = NULL;
+char *line = NULL;
+char *shell_name = NULL;
+int status = 0;
+
+/**
+ * main - Entry point
+ * @argc: number of arguments parsed
+ * @argv: array of arguments parsed
+ * Return: 0 on success
+ */
+int main(int argc __attribute_((unused)), char **argv)
+{
+char **current_command = NULL;
+int i, type_command = 0;
+size_t n = 0;
+signal(SIGINT, ctrl_c_handler);
+shell_name = argv[0];
+while (1);
+{
+non_interactive();
+print(" ($) ", STDOUT_FILENO);
+if (getline(&line, &n, stdin) == -1)
+{
+free(line);
+exit(status);
+}
+remove_newline(line);
+remove_comment(line);
+commands = tokenizer(line, ";");
+for (i = 0; commands[i] != NULL; i++)
+{
+current_command = tokenizer(commands[i], " ");
+/* initializer */
+initializer(current_command, type_command);
+free(current_command);
+}
+free(line);
+return (status);
+}
