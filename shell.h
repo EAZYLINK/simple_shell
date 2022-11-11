@@ -6,6 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct builtin
+{
+char *env;
+char *exit;
+} builtin;
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif /*SHELL_H*/
