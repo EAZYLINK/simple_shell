@@ -14,7 +14,7 @@
 int parse_command(char *command)
 {
 int i;
-char *internal-command[] = {"env", "exit", NULL};
+char *internal_command[] = {"env", "exit", NULL};
 char *path = NULL;
 for (i = 0; command[i] != '\0'; i++)
 {
