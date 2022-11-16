@@ -11,6 +11,7 @@ int _strcmp(char *first, char *second)
 int i = 0;
 while (first[i] != '\0')
 if (first[i] != second[i])
+{
 break;
 i++;
 }
@@ -29,7 +30,7 @@ char *new_string = NULL;
 int len_source = _strlen(source);
 int len_dest = _strlen(destination);
 
-new_string = malloc(sizeof(*new_string)*(len_dest + len_source + 1));
+new_string = malloc(sizeof(*new_string) * (len_dest + len_source + 1));
 _strcpy(destination, new_string);
 _strcpy(source, new_string + len_dest);
 new_string[len_dest + len_source] = '\0';

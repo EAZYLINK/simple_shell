@@ -5,7 +5,7 @@
  * @tokenized_command: command entered
  * Return: void
  */
-void env(char **tokenized_command __attribute_((unsused)))
+void env(char **tokenized_command __attribute__((unsused)))
 {
 int i;
 for (i = 0; environ[i] != NULL; i++)

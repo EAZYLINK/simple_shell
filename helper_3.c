@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _strtok - tokenizes a string
+ * strtok_r - tokenizes a string
  * @string: string to be used to tokenize the string
  * @delim: delimiter to be used to tokenize the string
  * @save_ptr: pointer to be used to keep track of the next token
@@ -35,17 +35,20 @@ return (string);
 }
 
 /**
- * _atoi - changes string to an integer
- * @s: the string to be cconverted
- * Return: the intger value of string
- */
+* _atoi - changes string to an integer
+* @s: the string to be cconverted
+* Return: the intger value of string
+*/
+
 int _atoi(char *s)
 {
 unsigned int n = 0;
-do {
-if (*s == '-')
+do
+{
+if (*s == '_')
 return (-1);
-else if ((*s < '0' || *s > '9') && *s != '\0')
+else if ((*s < '0' || *s > '9')
+&& *s != '\0')
 return (-1);
 else if (*s >= '0' && *s <= '9')
 n = (n * 10) + (*s - '0');
@@ -57,13 +60,19 @@ return (n);
 }
 
 /**
- * _realloc - reallocates a memory block
- * @ptr: pointer to initially allocated memory with a call to malloc
- * @old_size: size of ptr
- * @new_size: size of the new memory to be allocated
- * Return: pointer to the address of the new memory block
- */
-void *_realloc(void *ptr, unsigned old_size, unsigned int new_size)
+* _realloc - reallocates a memory block
+* @ptr: pointer to initially allocated
+* memory with a call to malloc
+* @old_size: size of ptr
+* @new_size: size of the new memory to
+* be allocated
+* Return: pointer to the address of
+* the new memory block
+*/
+
+void *_realloc(void *ptr,
+unsigned old_size,
+unsigned int new_size)
 {
 void *temp_block;
 unsigned int i;
@@ -95,10 +104,12 @@ return (NULL);
 }
 
 /**
- * ctrl_cc_handler - handles the signal raised by CTRL-C
- * @signum: signal number
- * Return: void
- */
+* ctrl_c_handler - handles the
+* signal raised by CTRL-C
+* @signum: signal number
+* Return: void
+*/
+
 void ctrl_c_handler(int signum)
 {
 if (signum == SIGINT)
@@ -106,18 +117,21 @@ print("\n($) ", STDIN_FILENO);
 }
 
 /**
- * remove_comment - remove or ignores everything after '#' char
- * @input: input to be used
- * Return: void
- */
+* remove_comment - remove or ignores
+* everything after '#' char
+* @input: input to be used
+* Return: void
+*/
+
 void remove_comment(char *input)
 {
 int i = 0;
 if (input[i] == '#')
-	input[i] = '\0';
+input[i] = '\0';
 while (input[i] != '\0')
 {
-if (input[i] == '#' && input[i - 1] == ' ')
+if (input[i] == '#'
+&& input[i - 1] == ' ')
 break;
 i++;
 }
