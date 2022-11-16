@@ -11,7 +11,7 @@ int i;
 for (i = 0; environ[i] != NULL; i++)
 {
 print(environ[i], STDOUT_FILENO);
-PRINT("\n", STDOUT_FILENO);
+print("\n", STDOUT_FILENO);
 }
 }
 
@@ -28,7 +28,7 @@ if (num_token == 1)
 {
 free(tokenized_command);
 free(line);
-free(command);
+free(commands);
 free(status);
 }
 else if (num_token == 2)
@@ -46,7 +46,7 @@ else
 {
 free(line);
 free(tokenized_command);
-free(command);
+free(commands);
 exit(arg);
 }
 }
