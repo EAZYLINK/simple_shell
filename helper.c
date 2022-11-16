@@ -2,7 +2,7 @@
 
 /**
  * tokenizer -tokenizes input and stores it into an array
- * @input-string: input to be parsed
+ * @input_string: input to be parsed
  * @delim: delimiter to be used, needs to be one character string
  * Return: array of tokens
  */
@@ -30,7 +30,7 @@ num_delim++;
  * @stream: stream to print out to
  * Return: void
  */
-void print9char *string, int stream)
+void print(char *string, int stream)
 {
 int i = 0;
 for (; string[i] != '\0'; i++)
