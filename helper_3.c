@@ -26,7 +26,7 @@ return (NULL);
 finish = string + _strspn(string, delim);
 if (*finish == '\0')
 {
-*save-ptr = finish;
+*save_ptr = finish;
 return (string);
 }
 *finish = '\0';
