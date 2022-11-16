@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
 * _realloc - reallocates a memory block
 * @ptr: pointer to initially allocated
@@ -33,7 +35,7 @@ temp_block = malloc(new_size);
 if (temp_block != NULL)
 {
 for (i = 0; i < min(old_size, new_size); i++)
-*((char*)temp_block + 1) = *((char *)ptr + 1);
+*((char *)temp_block + 1) = *((char *)ptr + 1);
 free(ptr);
 return (temp_block);
 }
