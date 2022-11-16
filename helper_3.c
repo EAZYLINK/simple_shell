@@ -24,7 +24,7 @@ if (*string == '\0')
 return (NULL);
 }
 finish = string + _strspn(string, delim);
-if (*finish == '\0)
+if (*finish == '\0')
 {
 *save-ptr = finish;
 return (string);
