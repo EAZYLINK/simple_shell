@@ -1,5 +1,8 @@
 #include "shell.h"
 
+char **commands = NULL;
+char *line = NULL;
+char *shell_name = NULL;
 /**
  * env - prints the current environment
  * @tokenized_command: command entered
@@ -22,10 +25,6 @@ print("\n", STDOUT_FILENO);
  */
 void quit(char **tokenized_command)
 {
-char **commands = NULL;
-char *line = NULL;
-char *shell_name = NULL;
-int status = 0;
 int num_token = 0, arg;
 for (; tokenized_command[num_token] != NULL; num_token++)
 if (num_token == 1)
