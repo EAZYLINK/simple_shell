@@ -9,7 +9,7 @@ int _atoi(char *s)
 {
 unsigned int n = 0;
 do {
-if (*s == '_')
+if (*s == '-')
 return (-1);
 else if ((*s < '0' || *s > '9')
 && *s != '\0')
