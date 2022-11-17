@@ -47,7 +47,7 @@ void execute_command(char **tokenized_command, int command_type)
 void (*func)(char **command);
 if (command_type == EXTERNAL_COMMAND)
 {
-if (execute(tokenized_command[0], tokenized_command, NULL) == -1)
+if (execve(tokenized_command[0], tokenized_command, NULL) == -1)
 {
 perror(_getenv("PWD"));
 exit(2);
