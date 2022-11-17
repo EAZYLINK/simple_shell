@@ -1,8 +1,5 @@
 #include "shell.h"
 
-char **commands = NULL;
-char *line = NULL;
-char *shell_name = NULL;
 /**
  * env - prints the current environment
  * @tokenized_command: command entered
