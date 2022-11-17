@@ -2,7 +2,6 @@
 char **commands = NULL;
 char *line = NULL;
 char *shell_name = NULL;
-int status = 0;
 
 /**
  * non_interactive - handles non_interactive mode
