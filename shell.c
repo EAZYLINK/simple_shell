@@ -3,6 +3,7 @@
 char **commands = NULL;
 char *line = NULL;
 char *shell_name = NULL;
+int status = 0;
 /**
  * main - Entry point
  * @argc: number of arguments parsed
