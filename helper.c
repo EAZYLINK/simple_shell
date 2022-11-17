@@ -23,6 +23,10 @@ av[num_delim] = token;
 token = _strtok_r(NULL, delim, &save_ptr);
 num_delim++;
 }
+av = _realloc(av, sizeof(*av) * num_delim, sizeof(*av) * (num_delim + 1));
+av[num_delim] = NULL;
+return (av);
+}
 
 /**
  * print - prints a string to stdout
