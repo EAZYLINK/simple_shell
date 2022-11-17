@@ -21,6 +21,11 @@ for (i = 0; command[i] != '\0'; i++)
 if (command[i] == '/')
 return (EXTERNAL_COMMAND);
 }
+for (i = 0; internal_command[i] != NULL; i++)
+{
+if (_strcmp(command, internal_command[i]) == 0)
+return (INTERNAL_COMMAND);
+}
 /*check path if command is found the PATH */
 path = check_path(command);
 if (path != NULL)
@@ -50,7 +55,7 @@ exit(2);
 }
 if (command_type == PATH_COMMAND)
 {
-if (execute(check_path(tokenized_command[0]), tokenized_command, NULL) == -1)
+if (execve(check_path(tokenized_command[0]), tokenized_command, NULL) == -1)
 {
 perror(_getenv("PWD"));
 exit(2);
