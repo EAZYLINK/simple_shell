@@ -6,7 +6,7 @@
  * @type_command: parse token
  * Return: void
  */
-void initializer(char *current_command, int type_command)
+void initializer(char **current_command, int type_command)
 {
 pid_t PID;
 if (type_command == EXTERNAL_COMMAND || type_command == PATH_COMMAND)
