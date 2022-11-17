@@ -1,8 +1,8 @@
 #include "shell.h"
-**commands = NULL;
-*line = NULL;
-*shell_name = NULL;
-status = 0;
+char **commands = NULL;
+char *line = NULL;
+char *shell_name = NULL;
+int status = 0;
 
 /**
  * non_interactive - handles non_interactive mode
