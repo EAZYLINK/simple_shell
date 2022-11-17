@@ -29,7 +29,6 @@ if (num_token == 1)
 free(tokenized_command);
 free(line);
 free(commands);
-free(status);
 }
 else if (num_token == 2)
 {
