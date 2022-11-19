@@ -49,7 +49,7 @@ void execute_command(char **tokenized_command, int command_type)
 {
 char *shell_name = NULL;
 void (*func)(char **command);
-
+int status = 0;
 if (command_type == EXTERNAL_COMMAND)
 {
 if (execve(tokenized_command[0], tokenized_command, NULL) == -1)
