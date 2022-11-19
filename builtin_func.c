@@ -7,10 +7,6 @@
  */
 void env(char **tokenized_command __attribute__((unused)))
 {
-char **commands = NULL;
-char *line = NULL;
-char *shell_name = NULL;
-int status = 0;
 int i;
 for (i = 0; environ[i] != NULL; i++)
 {
@@ -26,6 +22,10 @@ print("\n", STDOUT_FILENO);
  */
 void quit(char **tokenized_command)
 {
+char **commands = NULL;
+char *line = NULL;
+char *shell_name = NULL;
+int status = 0;
 int num_token = 0, arg;
 for (; tokenized_command[num_token] != NULL; num_token++)
 if (num_token == 1)
