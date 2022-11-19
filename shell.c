@@ -10,13 +10,12 @@ int main(int argc __attribute__((unused)), char **argv)
 {
 char **commands = NULL;
 char *line = NULL;
-char *shell_name = NULL;
+char *shell_name = argv[0];
 int status = 0;
 char **current_command = NULL;
 int i, type_command = 0;
 size_t n = 0;
 signal(SIGINT, ctrl_c_handler);
-shell_name = argv[0];
 while (1)
 {
 non_interactive();
