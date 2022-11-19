@@ -16,9 +16,9 @@ char **current_command = NULL;
 int i, type_command = 0;
 size_t n = 0;
 signal(SIGINT, ctrl_c_handler);
+*shell_name = argv[0];
 while (1)
 {
-shell_name = argv[0];
 non_interactive();
 print(" ($) ", STDOUT_FILENO);
 if (getline(&line, &n, stdin) == -1)
