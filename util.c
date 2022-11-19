@@ -76,7 +76,6 @@ print(shell_name, STDERR_FILENO);
 print(": 1: ", STDERR_FILENO);
 print(tokenized_command[0], STDERR_FILENO);
 print(": not found\n", STDERR_FILENO);
-status = 127;
 }
 }
 
