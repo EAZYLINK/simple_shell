@@ -13,6 +13,7 @@
 
 int parse_command(char *command)
 {
+char *shell_name = NULL;
 int i;
 char *internal_command[] = {"env", "exit", NULL};
 char *path = NULL;
