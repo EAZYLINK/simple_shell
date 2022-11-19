@@ -48,6 +48,7 @@ return (INVALID_COMMAND);
 void execute_command(char **tokenized_command, int command_type)
 {
 char *shell_name = NULL;
+int status = 0;
 void (*func)(char **command);
 
 if (command_type == EXTERNAL_COMMAND)
