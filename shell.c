@@ -6,17 +6,15 @@
  * @argv: array of arguments parsed
  * Return: 0 on success
  */
-int main(int argc __attribute__((unused)), char **argv)
+int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
 char **commands = NULL;
 char *line = NULL;
-char *shell_name = NULL;
 int status = 0;
 char **current_command = NULL;
 int i, type_command = 0;
 size_t n = 0;
 signal(SIGINT, ctrl_c_handler);
-shell_name = argv[0];
 while (1)
 {
 non_interactive();
