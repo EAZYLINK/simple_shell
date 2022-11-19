@@ -9,6 +9,7 @@ void env(char **tokenized_command __attribute__((unused)))
 {
 char **commands = NULL;
 char *line = NULL;
+char *shell_name = NULL;
 int status = 0;
 int i;
 for (i = 0; environ[i] != NULL; i++)
