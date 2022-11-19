@@ -6,7 +6,7 @@
  * @argv: array of arguments parsed
  * Return: 0 on success
  */
-int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
+int main(int argc __attribute__((unused)), char **argv)
 {
 char **commands = NULL;
 char *line = NULL;
