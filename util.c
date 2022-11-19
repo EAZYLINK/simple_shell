@@ -1,21 +1,22 @@
 #include "shell.h"
 
 /**
- * parse_command - determines the type of the command
- * @command: command to the parsed
- * Return: constant representing the command type
- * Description -
- * EXTERNAL_COMMAND (1) reprents commands like /bin/ls
- * INTERNAL_COMMAND (2) represents commands like exit, env
- * PATH_COMMAND (3) reprents commands found in the PATH like ls
- * INVALID-COMMAND (-1) represents invalid commands
- */
+* parse_command - determines the type of the command
+* @command: command to the parsed
+* Return: constant representing the command type
+* Description -
+* EXTERNAL_COMMAND (1) reprents commands like /bin/ls
+* INTERNAL_COMMAND (2) represents commands like exit, env
+* PATH_COMMAND (3) reprents commands found in the PATH like ls
+* INVALID-COMMAND (-1) represents invalid commands
+*/
 
 int parse_command(char *command)
 {
 int i;
 char *internal_command[] = {"env", "exit", NULL};
 char *path = NULL;
+
 for (i = 0; command[i] != '\0'; i++)
 {
 if (command[i] == '/')
@@ -26,25 +27,28 @@ for (i = 0; internal_command[i] != NULL; i++)
 if (_strcmp(command, internal_command[i]) == 0)
 return (INTERNAL_COMMAND);
 }
-/*check path if command is found the PATH */
+/* @check_path - checks if a command is found in the PATH */
 path = check_path(command);
 if (path != NULL)
 {
 free(path);
 return (PATH_COMMAND);
 }
+
 return (INVALID_COMMAND);
 }
 
 /**
- * execute_command - executes a command based on its type
- * @tokenized_command: command to be executed (ls -l == {ls, -l, NULL})
- * @command_type: type of command
- * Return: void
- */
+* execute_command - executes a command based on it's type
+* @tokenized_command: tokenized form of the command (ls -l == {ls, -l, NULL})
+* @command_type: type of the command
+*
+* Return: void
+*/
 void execute_command(char **tokenized_command, int command_type)
 {
 void (*func)(char **command);
+
 if (command_type == EXTERNAL_COMMAND)
 {
 if (execve(tokenized_command[0], tokenized_command, NULL) == -1)
@@ -77,16 +81,18 @@ status = 127;
 }
 
 /**
- * check_path - checks if a command is found in the PATH
- * @command: command to be used
- * Return: path where the command is found in, NULL if not found
- */
+* check_path - checks if a command is found in the PATH
+* @command: command to be used
+*
+* Return: path where the command is found in, NULL if not found
+*/
 char *check_path(char *command)
 {
 char **path_array = NULL;
 char *temp, *temp2, *path_cpy;
 char *path = _getenv("PATH");
 int i;
+
 if (path == NULL || _strlen(path) == 0)
 return (NULL);
 path_cpy = malloc(sizeof(*path_cpy) * (_strlen(path) + 1));
@@ -112,10 +118,11 @@ return (NULL);
 }
 
 /**
- * get_func - retrieves a function based on the command given and a mapping
- * @command: string to check against the mapping
- * Return: pointer to the proper function, or null on fail
- */
+* get_func - retrieves a function based on the command given and a mapping
+* @command: string to check against the mapping
+*
+* Return: pointer to the proper function, or null on fail
+*/
 void (*get_func(char *command))(char **)
 {
 int i;
@@ -132,15 +139,17 @@ return (NULL);
 }
 
 /**
- * _getenv - gets the value of an environment variable
- * @name: name of the environment variable
- * Return: the value of the variable as a string
- */
+* _getenv - gets the value of an environment variable
+* @name: name of the environment variable
+*
+* Return: the value of the variable as a string
+*/
 char *_getenv(char *name)
 {
 char **my_environ;
 char *pair_ptr;
 char *name_cpy;
+
 for (my_environ = environ; *my_environ != NULL; my_environ++)
 {
 for (pair_ptr = *my_environ, name_cpy = name;
