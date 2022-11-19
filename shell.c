@@ -11,12 +11,14 @@ int main(int argc __attribute__((unused)), char **argv)
 char **commands = NULL;
 char *line = NULL;
 int status = 0;
+char *shell_name = NULL
 char **current_command = NULL;
 int i, type_command = 0;
 size_t n = 0;
 signal(SIGINT, ctrl_c_handler);
 while (1)
 {
+shell_name = argv[0];
 non_interactive();
 print(" ($) ", STDOUT_FILENO);
 if (getline(&line, &n, stdin) == -1)
