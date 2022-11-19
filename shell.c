@@ -1,9 +1,5 @@
 #include "shell.h"
 
-commands = NULL;
-line = NULL;
-shell_name = NULL;
-status = 0;
 /**
  * main - Entry point
  * @argc: number of arguments parsed
