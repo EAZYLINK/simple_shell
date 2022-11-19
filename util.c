@@ -47,7 +47,6 @@ return (INVALID_COMMAND);
 */
 void execute_command(char **tokenized_command, int command_type)
 {
-char *shell_name = NULL;
 void (*func)(char **command);
 if (command_type == EXTERNAL_COMMAND)
 {
@@ -76,6 +75,7 @@ print(shell_name, STDERR_FILENO);
 print(": 1: ", STDERR_FILENO);
 print(tokenized_command[0], STDERR_FILENO);
 print(": not found\n", STDERR_FILENO);
+status = 127;
 }
 }
 
