@@ -33,10 +33,10 @@ void (*func)(char **command);
 } function_map;
 
 extern char **environ;
-extern char *line = NULL;
-extern char **commands = NULL;
-extern char *shell_name = NULL;
-extern int status = 0;
+extern char *line;
+extern char **commands;
+extern char *shell_name;
+extern int status;
 
 /*helpers*/
 void print(char *, int);
