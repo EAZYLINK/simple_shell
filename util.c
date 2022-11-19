@@ -13,7 +13,6 @@
 
 int parse_command(char *command)
 {
-char *shell_name = NULL;
 int i;
 char *internal_command[] = {"env", "exit", NULL};
 char *path = NULL;
@@ -48,6 +47,7 @@ return (INVALID_COMMAND);
 */
 void execute_command(char **tokenized_command, int command_type)
 {
+char *shell_name = NULL;
 void (*func)(char **command);
 
 if (command_type == EXTERNAL_COMMAND)
